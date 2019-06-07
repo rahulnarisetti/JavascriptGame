@@ -18,22 +18,42 @@ GAME RULES:
 // //document.querySelector('#current-0').innerHTML='<b>'+x+'</b>'
 
 
-var scores=[0,0],roundScore=0,activePlayer=1;
+var scores=[0,0],roundScore=0,activePlayer=0;
 
-
+//set scores to zero
 document.getElementById('score-0').textContent='0';
 document.getElementById('score-1').textContent='0';
 document.getElementById('current-0').textContent='0';
 document.getElementById('current-1').textContent='0';
 
+//hide dice
 document.querySelector('.dice').style.display='none';
 
 document.querySelector('.btn-roll').addEventListener('click',function(){
 
+    // random number generator on click
     var dice=Math.floor((Math.random()*6)+1);
 
+    //show dice and change dice number on click
     var diceDOM=document.querySelector('.dice');
     diceDOM.style.display='block';  
     diceDOM.src='dice-'+dice+'.png';
+
+    //to change to next player
+    if (dice>1)
+    {
+        roundScore += dice;
+        document.querySelector('#current-'+activePlayer).textContent=roundScore;
+    }
+    else
+    {
+        document.getElementById('current-0').textContent='0';
+        document.getElementById('current-1').textContent='0';
+        roundScore=0;
+
+        activePlayer===0? activePlayer=1:activePlayer=0;
+        
+
+    }
 
 });
