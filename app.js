@@ -19,7 +19,7 @@ GAME RULES:
 
 
 
-var scores,roundScore,activePlayer,gameplay;
+var scores,roundScore,activePlayer,gameplay,rollmemory,checking;
 
 function init()
 {
@@ -27,6 +27,8 @@ function init()
     roundScore=0;
     activePlayer=0;
     gameplay=true;
+    rollmemory=0;
+    checking=true;
 
     //set scores to zero
 document.getElementById('score-0').textContent='0';
@@ -70,26 +72,32 @@ init();
 
 document.querySelector('.btn-roll').addEventListener('click',function(){
 if (gameplay)
-{
+{   
     // random number generator on click
     var dice=Math.floor((Math.random()*6)+1);
-
+    
     //show dice and change dice number on click
     var diceDOM=document.querySelector('.dice');
     diceDOM.style.display='block';  
     diceDOM.src='dice-'+dice+'.png';
-
+    checking=rollmemory!==dice || rollmemory!==6;
+    
     //to change to next player
-    if (dice>1)
+    if (dice>1 && checking)
     {
         roundScore += dice;
         document.querySelector('#current-'+activePlayer).textContent=roundScore;
+        rollmemory=dice;
     }
     else
     {
+        
         changePlayer();
+        document.querySelector('.dice').style.display='block'; 
+        rollmemory=0;
 
     }
+    
 
 }
 });
