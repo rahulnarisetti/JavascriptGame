@@ -19,7 +19,7 @@ GAME RULES:
 
 
 
-var scores,roundScore,activePlayer,gameplay,rollmemory,checking;
+var scores,roundScore,activePlayer,gameplay,rollmemory,checkingz, zle;
 
 function init()
 {
@@ -65,6 +65,10 @@ function changePlayer()
 
     document.querySelector('.dice').style.display='none'; 
 }
+
+
+
+
 
 
 init();
@@ -113,7 +117,7 @@ if (gameplay)
     document.getElementById('score-'+activePlayer).textContent=scores[activePlayer];
 
       //check for winner
-      if (scores[activePlayer]>=20)
+      if (scores[activePlayer]>=zle)
       {
           document.getElementById('name-'+activePlayer).textContent='Winner!';
           document.querySelector('.dice').style.display='none';
@@ -133,3 +137,11 @@ if (gameplay)
 });
 
 document.querySelector('.btn-new').addEventListener('click',init);
+
+document.querySelector('.btn-holde').addEventListener('click',function(){
+
+    zle=document.getElementById('enter-input-1').value;
+    console.log(zle);
+    
+});
+
