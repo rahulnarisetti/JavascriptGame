@@ -138,10 +138,10 @@ i {
     transition: margin 0.3s;
 }
 
-.btn-new { top: 100px;}
+.btn-new { top: 45px;}
 .btn-roll { top: 403px;}
 .btn-hold { top: 467px;}
-.btn-holde { top: 45px;}
+.btn-holde { top: 85px;}
 
 .dice {
     position: absolute;
@@ -171,8 +171,9 @@ i {
     position: absolute;
     top: 12%;
     left: 50%;
+    padding-bottom: 4.5%;
     transform: translate(-50%, -50%);
-    
+    background-color: #f7f7f7;
     
     overflow: hidden;
 
@@ -183,7 +184,7 @@ h1 {
     margin-top: 5px;
     font-size: 25px;
     margin-left: 36%;
-    color: red;
+    color: #EB4D4D;
     font-family: Lato;
 }
 
